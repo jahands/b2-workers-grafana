@@ -1,0 +1,8 @@
+name = "b2-notif-worker"
+main = "src/index.ts"
+compatibility_date = "2024-06-03"
+compatibility_flags = ["nodejs_compat"]
+
+analytics_engine_datasets = [
+  { binding = "B2_EVENTS", dataset = "B2_EVENTS" },
+]
