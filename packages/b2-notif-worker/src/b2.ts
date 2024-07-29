@@ -1,19 +1,10 @@
 import { Context, Next } from 'hono'
 import { z } from 'zod'
 
-export async function useValidateB2EventSignature(c: Context, next: Next): Promise<void> {
-	const sig = z
-		.string()
-		.min(1)
-		.describe('b2 signature')
-		.parse(c.req.header('X-Bz-Event-Notification-Signature'))
-
-	await next()
-}
-
 // https://www.backblaze.com/docs/cloud-storage-event-notifications-reference-guide#event-types
 export type B2EventType = z.infer<typeof B2EventType>
 export const B2EventType = z.enum([
+	'b2:TestEvent',
 	'b2:ObjectCreated:Upload',
 	'b2:ObjectCreated:MultipartUpload',
 	'b2:ObjectCreated:Copy',
