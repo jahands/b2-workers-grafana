@@ -54,14 +54,14 @@ When prompted, enter the signing secret from the previous step and press enter.
 
 ### Query from Grafana
 
-1. Follow the instructions [here](https://developers.cloudflare.com/analytics/analytics-engine/grafana/) to set up Grafana to query Cloudflare Analytics Engine.
-2. Create a new dashboard and add a new panel.
-3. Select Altinity Plugin for Clickhouse as the data source.
-4. In the query editor, set the following settings:
+#### 1. Follow the instructions [here](https://developers.cloudflare.com/analytics/analytics-engine/grafana/) to set up Grafana to query Cloudflare Analytics Engine.
+#### 2. Create a new dashboard and add a new panel.
+#### 3. Select Altinity Plugin for Clickhouse as the data source.
+#### 4. In the query editor, set the following settings:
   ![query settings](./.docs/1_query_settings.png)
   If you don't see these options, you may need to click the editor toggle button on the top write of the query editor:
   ![query editor toggle](./.docs/2_toggle.png)
-5. In the query editor, enter the following query:
+#### 5. In the query editor, enter the following query:
   ```sql
   SELECT
     $timeSeries as t,
