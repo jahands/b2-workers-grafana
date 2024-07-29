@@ -51,3 +51,40 @@ pnpm wrangler secret put B2_SIGNING_SECRET
 ```
 
 When prompted, enter the signing secret from the previous step and press enter.
+
+### Query from Grafana
+
+1. Follow the instructions [here](https://developers.cloudflare.com/analytics/analytics-engine/grafana/) to set up Grafana to query Cloudflare Analytics Engine.
+2. Create a new dashboard and add a new panel.
+3. Select Altinity Plugin for Clickhouse as the data source.
+4. In the query editor, set the following settings:
+  ![query settings](./.docs/1_query_settings.png)
+  If you don't see these options, you may need to click the editor toggle button on the top write of the query editor:
+  ![query editor toggle](./.docs/2_toggle.png)
+5. In the query editor, enter the following query:
+  ```sql
+  SELECT
+    $timeSeries as t,
+    SUM(double1 * _sample_interval) as TotalBytes,
+    blob4 as EventType
+  FROM B2_EVENTS
+  WHERE $timeFilter
+  GROUP BY t, EventType
+  ORDER BY t
+6. On the right side of the window in the panel settings, ensure **Time Series** is selected at the top, and set the **Unit** to **Bytes (SI)**:
+  ```
+  ![query settings](./.docs/3_panel_settings.png)
+
+## Demo
+
+If everything worked, you should see something like this in Grafana:
+
+![demo](./.docs/5_demo.png)
+
+## Debugging
+
+If you have any issues, you can tail logs for the Worker by running the following command within `packages/b2-notif-worker`:
+
+```shell
+pnpm wrangler tail
+```
