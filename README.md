@@ -6,9 +6,9 @@ Graph B2 IO using B2 Event Notifications, Workers Analytics Engine, and Grafana
 
 - [Node.js 18+](https://nodejs.org/en/download/package-manager)
 - [pnpm](https://pnpm.io/installation)
-- Cloudflare account
-- Backblaze B2 account
-- Grafana account
+- [Cloudflare account](https://dash.cloudflare.com/sign-up)
+- [Backblaze B2 account](https://www.backblaze.com/b2/sign-up/)
+- [Grafana account](https://grafana.com/) (or a self-hosted instance.)
 
 ## Setup
 
