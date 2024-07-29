@@ -72,7 +72,7 @@ const app = new Hono<App>()
 			const idx = z
 				.string()
 				.min(1)
-				.parse(await sha1(event.accountId + event.bucketId))
+				.parse(await sha1(event.accountId + event.bucketId + event.eventType))
 
 			c.env.B2_EVENTS.writeDataPoint({
 				blobs: [
