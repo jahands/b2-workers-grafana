@@ -79,6 +79,7 @@ const app = new Hono<App>()
 					event.accountId, // blob1
 					event.bucketId, // blob2
 					event.bucketName, // blob3
+					event.eventType, // blob4
 				],
 				doubles: [
 					// Should not be null due to filter above
