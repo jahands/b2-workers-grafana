@@ -79,7 +79,7 @@ When prompted, enter the signing secret from the previous step and press enter.
 
 If everything worked, you should see something like this in Grafana:
 
-![demo](./.docs/5_demo.png)
+![demo](./.docs/4_demo.png)
 
 ## Debugging
 
